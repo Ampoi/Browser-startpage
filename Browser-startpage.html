@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スタート</title>
+    <style>
+        body{
+            background-size: cover;
+            background-image: url("https://sozaino.site/wp-content/uploads/2021/09/abs78.png");/*ここのURLを変えることで背景画像を変更できます。*/
+            height:100vh;
+            width:100%;
+            margin:0;
+            overflow: hidden;
+        }
+        #input-box{
+            float: left;
+            padding-left: calc(50% - 229px);
+            padding-right: calc(50% - 229px);
+            padding-bottom: 50px;
+        }
+        #gsearch-input{
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 150px;
+        }
+        .boxes{
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(19px);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: solid 1px rgba(255,255,255,0.3);
+        }
+        .shortcut{
+            height:136.5px;
+            width:200px;
+            display: inline-block;
+            text-align: center;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ここら辺は触らないでください  -->
+    <div id="input-box">
+        <form method=get action="http://www.google.co.jp/search">
+        <table><tr><td>
+        <input type=text name=q size=50 maxlength=255 value="" id="gsearch-input" class="boxes">
+        <input type=hidden name=ie value=utf-8>
+        <input type=hidden name=oe value=utf-8>
+        <input type=hidden name=hl value="ja">
+        </td></tr></table>
+        </form>
+    </div>
+
+    <div style="text-align: center;" id="shortcuts">
+
+    </div>
+    <script>
+        const shortcuts = document.getElementById("shortcuts");
+        function mkShortcut(name, url, icon){
+            const newShortcut = '<a class="shortcut boxes" href="' + url + '"><div style="background:url(' + icon + '); background-size:cover; height:75px; width:75px; margin:12.5px 62.5px;"></div><b style="margin:0px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:175px;">' + name + '</b></a>'
+            shortcuts.innerHTML += newShortcut
+        }
+        function mkBr(){
+            shortcuts.innerHTML += "<br>";
+        }
+        //mkShortcut("ショートカット名","ショートカット先のURL","ショートカット用アイコン")でショートカットを追加します。ショートカットを次の行に入れたい場合はあいだにmkBr()を追加してください。
+        mkShortcut("ドキュメント", "https://docs.google.com/document", "https://play-lh.googleusercontent.com/emmbClh_hm0WpWZqJ0X59B8Pz1mKoB9HVLkYMktxhGE6_-30SdGoa-BmYW73RJ8MGZQ")
+        mkShortcut("スプレッドシート", "https://docs.google.com/spreadsheets/", "https://www.g-workspace.jp/wp-content/uploads/Sheets_Product_Icon_512dp.png")
+        mkShortcut("Pinterest", "https://www.pinterest.jp/", "https://images-na.ssl-images-amazon.com/images/I/51LdjRWonGL.png")
+        mkBr()
+        mkShortcut("ev.io", "https://ev.io/", "https://images.crazygames.com/ev-io/20210120171539/ev-io-cover?auto=format,compress&q=75&cs=strip&ch=DPR&w=1200&h=630&fit=crop")
+        mkShortcut("Apple", "https://apple.com/jp", "https://yt3.ggpht.com/ytc/AKedOLTtT0DdK6IbIRNGsIL-QPZPkK3_YHFl_AQ_47KBkg=s900-c-k-c0x00ffffff-no-rj")
+    </script>
+    <!--©:S.kuronosuke-->
+</body>
+</html>
